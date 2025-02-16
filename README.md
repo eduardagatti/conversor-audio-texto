@@ -1,55 +1,143 @@
-# Conversor de Áudio para Texto
+# 🎙️ Conversor de Áudio para Texto
 
-Este projeto é uma aplicação web simples que converte arquivos de áudio (MP3 ou WAV) em texto. Utiliza Flask como framework para a interface web e Pydub e SpeechRecognition para a conversão de áudio para texto.
+Uma aplicação web moderna e intuitiva que converte arquivos de áudio (MP3 ou WAV) em texto. Desenvolvida com Flask e tecnologias de reconhecimento de voz de última geração.
 
 ![Imagem do Projeto](assets/screenshot.png)
 
-## Funcionalidades
+## ✨ Funcionalidades
 
-- **Upload de arquivos de áudio**: Suporta arquivos MP3 e WAV.
-- **Conversão de áudio para texto**: Usando o Google Speech Recognition.
-- **Reprodução de áudio**: O áudio convertido pode ser reproduzido diretamente na interface web.
-- **Armazenamento de arquivos**: O áudio é salvo no formato WAV após a conversão de MP3 (se necessário) e fica disponível para reprodução.
+- 📁 **Upload Intuitivo**: Interface drag-and-drop para arquivos MP3 e WAV
+- 🔄 **Conversão Automática**: Transcrição precisa usando Google Speech Recognition
+- 🎵 **Player de Áudio Integrado**: Reproduza o áudio original diretamente na interface
+- 📋 **Copiar com Um Clique**: Botão para copiar o texto transcrito
+- 💾 **Armazenamento Otimizado**: Conversão automática para WAV quando necessário
 
-## Pré-requisitos
+## 🔧 Pré-requisitos
 
-Antes de rodar o projeto, certifique-se de ter o Python instalado em seu sistema. Além disso, será necessário instalar as dependências do projeto.
+- Python 3.8 ou superior
+- FFmpeg instalado no sistema (necessário para processamento de áudio)
+- Conexão com internet (para o serviço de reconhecimento de voz)
 
-### Dependências
+### Sistema Operacional
+- ✅ Windows 10/11
+- ✅ macOS 10.15+
+- ✅ Ubuntu 20.04+
 
-1. Flask
-2. Pydub
-3. SpeechRecognition
+## 🚀 Instalação
 
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/eduardagatti/conversor-audio-texto
+   cd audio-para-texto
+   ```
 
-## Instalação
+2. **Configure o ambiente virtual**
+   ```bash
+   python -m venv venv
+   
+   # Windows
+   .\venv\Scripts\activate
+   
+   # Linux/macOS
+   source venv/bin/activate
+   ```
 
-Para instalar as dependências do projeto, siga os passos abaixo:
+3. **Instale as dependências**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-1. Clone o repositório para o seu ambiente local:
-    ```bash
-    git clone https://github.com/seu-usuario/audio-para-texto.git
-    ```
+4. **Configure as variáveis de ambiente**
+   ```bash
+   # Crie um arquivo .env na raiz do projeto
+   cp .env.example .env
+   
+   # Edite o arquivo .env com suas configurações
+   ```
 
-2. Navegue até o diretório do projeto:
-    ```bash
-    cd audio-para-texto
-    ```
+5. **Inicie a aplicação**
+   ```bash
+   # Desenvolvimento
+   python app.py
+   
+   # Produção
+   gunicorn -w 4 app:app
+   ```
 
-3. Crie um ambiente virtual (opcional, mas recomendado):
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # No Windows use: venv\Scripts\activate
-    ```
+## 🛠️ Dependências Principais
 
-4. Instale as dependências utilizando o `pip`:
-    ```bash
-    pip install -r requirements.txt
-    ```
+- **Flask** (3.0.2): Framework web
+- **pydub** (0.25.1): Processamento de áudio
+- **SpeechRecognition** (3.10.1): Reconhecimento de voz
+- **python-dotenv** (1.0.1): Gerenciamento de variáveis de ambiente
+- **gunicorn** (21.2.0): Servidor WSGI para produção
 
-5. Execute a aplicação:
-    ```bash
-    python app.py
-    ```
+## 📝 Configuração do FFmpeg
 
-A aplicação estará disponível em `http://127.0.0.1:5000/`. <3
+### Windows
+1. Baixe o FFmpeg do site oficial
+2. Adicione ao PATH do sistema
+3. Verifique a instalação: `ffmpeg -version`
+
+### Linux
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+### macOS
+```bash
+brew install ffmpeg
+```
+
+## 🔍 Troubleshooting
+
+### Problemas Comuns
+
+1. **Erro: "FFmpeg not found"**
+   - Verifique se o FFmpeg está instalado corretamente
+   - Confirme se está no PATH do sistema
+
+2. **Erro: "Could not connect to recognition service"**
+   - Verifique sua conexão com a internet
+   - Confirme se as credenciais da API estão corretas
+
+3. **Erro: "File too large"**
+   - Ajuste `MAX_CONTENT_LENGTH` no arquivo de configuração
+   - Considere comprimir o arquivo de áudio
+
+## 🔒 Segurança
+
+- Implementa validação de tipos de arquivo
+- Limita tamanho máximo de upload
+- Sanitiza nomes de arquivo
+- Usa diretório temporário para processamento
+- Implementa rate limiting básico
+
+## 📈 Performance
+
+- Processa arquivos de forma assíncrona
+- Utiliza cache para resultados recentes
+- Otimiza arquivos de áudio antes da transcrição
+- Suporta múltiplas requisições simultâneas
+
+## 🤝 Contribuindo
+
+1. Faça um Fork do projeto
+2. Crie sua Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a Branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 📬 Contato
+
+Eduarda Gatti - [meduarda.gatti@gmail.com](mailto:meduarda.gatti@gmail.com)
+
+Link do Projeto: [https://github.com/eduardagatti/conversor-audio-texto](https://github.com/eduardagatti/conversor-audio-texto)
+
+---
+⭐️ Se este projeto te ajudou, considere dar uma estrela!

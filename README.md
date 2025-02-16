@@ -52,4 +52,4 @@ Para instalar as dependências do projeto, siga os passos abaixo:
     python app.py
     ```
 
-A aplicação estará disponível em `http://127.0.0.1:5000/`.
+A aplicação estará disponível em `http://127.0.0.1:5000/`. <3

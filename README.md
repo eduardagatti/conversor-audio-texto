@@ -2,6 +2,8 @@
 
 Este projeto é uma aplicação web simples que converte arquivos de áudio (MP3 ou WAV) em texto. Utiliza Flask como framework para a interface web e Pydub e SpeechRecognition para a conversão de áudio para texto.
 
+![Imagem do Projeto](assets/screenshot.png)
+
 ## Funcionalidades
 
 - **Upload de arquivos de áudio**: Suporta arquivos MP3 e WAV.
